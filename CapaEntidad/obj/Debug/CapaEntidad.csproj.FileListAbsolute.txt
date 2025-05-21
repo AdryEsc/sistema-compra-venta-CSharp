@@ -1,0 +1,6 @@
+C:\Users\adry\source\repos\SistemaCompraVenta\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\Users\adry\source\repos\SistemaCompraVenta\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\Users\adry\source\repos\SistemaCompraVenta\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+C:\Users\adry\source\repos\SistemaCompraVenta\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\Users\adry\source\repos\SistemaCompraVenta\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\Users\adry\source\repos\SistemaCompraVenta\CapaEntidad\obj\Debug\CapaEntidad.pdb
