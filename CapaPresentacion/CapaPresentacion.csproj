@@ -134,6 +134,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\OpcionComboBox.cs" />
+    <Compile Include="Utilidades\ValidacionTextBox.cs" />
     <EmbeddedResource Include="frmAjustes.resx">
       <DependentUpon>frmAjustes.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,13 +62,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbBusquedaRol = new System.Windows.Forms.ComboBox();
             this.txtBusquedaNombre = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.txtIndice = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtBusquedaDni = new System.Windows.Forms.TextBox();
-            this.cbBusquedaEstado = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,6 +119,7 @@
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(205, 20);
             this.txtDocumento.TabIndex = 4;
+            this.txtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // txtNombreCompleto
             // 
@@ -127,6 +127,7 @@
             this.txtNombreCompleto.Name = "txtNombreCompleto";
             this.txtNombreCompleto.Size = new System.Drawing.Size(205, 20);
             this.txtNombreCompleto.TabIndex = 5;
+            this.txtNombreCompleto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreCompleto_KeyPress);
             // 
             // txtCorreo
             // 
@@ -277,15 +278,15 @@
             this.dgvUsuarios.AllowUserToAddRows = false;
             this.dgvUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -302,9 +303,9 @@
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvUsuarios.RowTemplate.Height = 28;
             this.dgvUsuarios.Size = new System.Drawing.Size(774, 408);
             this.dgvUsuarios.TabIndex = 18;
@@ -402,24 +403,15 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(298, 49);
+            this.label10.Location = new System.Drawing.Point(551, 50);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(124, 16);
             this.label10.TabIndex = 21;
             this.label10.Text = "Buscar por nombre:";
             // 
-            // cbBusquedaRol
-            // 
-            this.cbBusquedaRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBusquedaRol.FormattingEnabled = true;
-            this.cbBusquedaRol.Location = new System.Drawing.Point(833, 47);
-            this.cbBusquedaRol.Name = "cbBusquedaRol";
-            this.cbBusquedaRol.Size = new System.Drawing.Size(125, 21);
-            this.cbBusquedaRol.TabIndex = 22;
-            // 
             // txtBusquedaNombre
             // 
-            this.txtBusquedaNombre.Location = new System.Drawing.Point(428, 48);
+            this.txtBusquedaNombre.Location = new System.Drawing.Point(681, 48);
             this.txtBusquedaNombre.Name = "txtBusquedaNombre";
             this.txtBusquedaNombre.Size = new System.Drawing.Size(162, 20);
             this.txtBusquedaNombre.TabIndex = 23;
@@ -454,7 +446,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(609, 51);
+            this.label11.Location = new System.Drawing.Point(859, 50);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(96, 16);
             this.label11.TabIndex = 27;
@@ -462,19 +454,22 @@
             // 
             // txtBusquedaDni
             // 
-            this.txtBusquedaDni.Location = new System.Drawing.Point(711, 48);
+            this.txtBusquedaDni.Location = new System.Drawing.Point(961, 48);
             this.txtBusquedaDni.Name = "txtBusquedaDni";
             this.txtBusquedaDni.Size = new System.Drawing.Size(102, 20);
             this.txtBusquedaDni.TabIndex = 28;
+            this.txtBusquedaDni.TextChanged += new System.EventHandler(this.txtBusquedaDni_TextChanged);
             // 
-            // cbBusquedaEstado
+            // label12
             // 
-            this.cbBusquedaEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbBusquedaEstado.FormattingEnabled = true;
-            this.cbBusquedaEstado.Location = new System.Drawing.Point(979, 48);
-            this.cbBusquedaEstado.Name = "cbBusquedaEstado";
-            this.cbBusquedaEstado.Size = new System.Drawing.Size(84, 21);
-            this.cbBusquedaEstado.TabIndex = 29;
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(316, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(215, 24);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "LISTA DE USUARIOS";
             // 
             // frmUsuarios
             // 
@@ -482,13 +477,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1075, 574);
-            this.Controls.Add(this.cbBusquedaEstado);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.txtBusquedaDni);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtIndice);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.txtBusquedaNombre);
-            this.Controls.Add(this.cbBusquedaRol);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label9);
@@ -544,7 +538,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cbBusquedaRol;
         private System.Windows.Forms.TextBox txtBusquedaNombre;
         private FontAwesome.Sharp.IconButton btnLimpiar;
         private System.Windows.Forms.TextBox txtIndice;
@@ -560,6 +553,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBusquedaDni;
-        private System.Windows.Forms.ComboBox cbBusquedaEstado;
+        private System.Windows.Forms.Label label12;
     }
 }

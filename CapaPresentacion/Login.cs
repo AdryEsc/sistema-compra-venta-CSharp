@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaNegocio;
+using CapaPresentacion.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using CapaNegocio;
-using CapaEntidad;
-
 namespace CapaPresentacion
 {
     public partial class Login : Form
     {
+        //Instancia para validar textbox
+        ValidacionTextBox validacionTextBox = new ValidacionTextBox();
+
         public Login()
         {
             InitializeComponent();
@@ -33,22 +36,29 @@ namespace CapaPresentacion
             }
             else
             {
-                Usuario oUsuario = new CN_Usuario().listarUsuarios().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtContrasenia.Text).FirstOrDefault();
-
-                if (oUsuario != null)
-                {
-                    Inicio form = new Inicio(oUsuario);
-
-                    form.Show();
-
-                    this.Hide();
-
-                    form.FormClosing += formClosing;
+                Usuario auxUsuario = new CN_Usuario().listarUsuarios().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtContrasenia.Text).FirstOrDefault();
+                if (auxUsuario.Estado == 0) {
+                    MessageBox.Show("Usuario NO ACTIVO, por favor comuniquese con el administrador", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else
-                {
-                    MessageBox.Show("No se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                else {
+                    Usuario oUsuario = new CN_Usuario().listarUsuarios().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtContrasenia.Text && u.Estado == 1).FirstOrDefault();
+
+                    if (oUsuario != null)
+                    {
+                        Inicio form = new Inicio(oUsuario);
+
+                        form.Show();
+
+                        this.Hide();
+
+                        form.FormClosing += formClosing;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
+                   
             }
         }
           
@@ -60,6 +70,11 @@ namespace CapaPresentacion
             txtContrasenia.Text = "";
 
             this.Show();
+        }
+
+        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacionTextBox.soloNumeros(e);
         }
     }
 }

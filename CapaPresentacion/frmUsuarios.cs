@@ -12,13 +12,18 @@ using CapaPresentacion.Utilidades;
 using CapaEntidad;
 using CapaNegocio;
 
+
 namespace CapaPresentacion
 {
     public partial class frmUsuarios : Form
     {
+        //Instancia para validar textbox
+        ValidacionTextBox validacionTextBox = new ValidacionTextBox();
+
         public frmUsuarios()
         {
             InitializeComponent();
+            
         }
 
         private void frmUsuarios_Load(object sender, EventArgs e)
@@ -40,25 +45,6 @@ namespace CapaPresentacion
             cbRol.DisplayMember = "texto";
             cbRol.ValueMember = "valor";
             cbRol.SelectedIndex = 0;
-
-            //Cargamos combobox de busqueda por rol
-            List<Rol> listaBusquedaRoles = new CN_Rol().listarRoles();
-            foreach (Rol item in listaBusquedaRoles)
-            {
-                cbBusquedaRol.Items.Add(new OpcionComboBox() { valor = item.Id, texto = item.Descripcion });
-            }
-
-            cbBusquedaRol.DisplayMember = "texto";
-            cbBusquedaRol.ValueMember = "valor";
-            cbBusquedaRol.SelectedIndex = 0;
-
-            //Cargamos el combobox de busqueda por estado
-            cbBusquedaEstado.Items.Add(new OpcionComboBox() { valor = 1, texto = "Activo" });
-            cbBusquedaEstado.Items.Add(new OpcionComboBox() { valor = 0, texto = "No Activo" });
-
-            cbBusquedaEstado.DisplayMember = "texto";
-            cbBusquedaEstado.ValueMember = "valor";
-            cbBusquedaEstado.SelectedIndex = 0;
 
             //Cargamos los usuarios a la tabla
             List<Usuario> listaUsuarios = new CN_Usuario().listarUsuarios();
@@ -98,7 +84,7 @@ namespace CapaPresentacion
                 limpiar();
             }
             else {
-                MessageBox.Show(mensaje);
+                MessageBox.Show(mensaje,"Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Stop);
             }   
         }
 
@@ -112,6 +98,8 @@ namespace CapaPresentacion
             txtConfirmarContasenia.Text = "";
             cbRol.SelectedIndex = 0;
             cbEstado.SelectedIndex = 0;
+            txtBusquedaNombre.Text = "";
+            txtBusquedaDni.Text = "";
 
             txtDocumento.Select();
 
@@ -208,7 +196,7 @@ namespace CapaPresentacion
                     }
                 }
                 else {
-                    MessageBox.Show("No se realizo ningun cambio");
+                    MessageBox.Show("No se realizo ningun cambio","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
             }
         }
@@ -264,7 +252,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("No se realizo ningun cambio");
+                    MessageBox.Show("No se realizo ningun cambio","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     limpiar();
                 }
             }
@@ -292,6 +280,33 @@ namespace CapaPresentacion
         private void txtBusquedaNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
             
+        }
+
+        private void txtNombreCompleto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacionTextBox.soloLetras(e);
+        }
+
+        private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validacionTextBox.soloNumeros(e);
+        }
+
+        private void txtBusquedaDni_TextChanged(object sender, EventArgs e)
+        {
+            dgvUsuarios.DataSource = null;
+            dgvUsuarios.Rows.Clear();
+
+            string caracter = txtBusquedaDni.Text;
+
+            //Cargamos los usuarios a la tabla
+            List<Usuario> listaUsuarios = new CN_Usuario().buscarUsuarioPorDni(caracter);
+            foreach (Usuario item in listaUsuarios)
+            {
+                dgvUsuarios.Rows.Add(new object[] {"",item.Id,item.Documento,item.NombreCompleto,item.Correo,item.Clave,
+                item.oRol.Id,item.oRol.Descripcion,item.Estado,item.Estado == 1 ? "Activo" : "No Activo"});
+
+            }
         }
     }//Fin clase frmUsuario
 }

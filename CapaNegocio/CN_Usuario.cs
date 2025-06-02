@@ -99,5 +99,10 @@ namespace CapaNegocio
         {
             return objcd_usuario.buscarUsuarioPorNombre(caracter);
         }
+
+        public List<Usuario> buscarUsuarioPorDni(string caracter)
+        {
+            return objcd_usuario.buscarUsuarioPorDni(caracter);
+        }
     }
 }
