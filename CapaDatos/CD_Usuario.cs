@@ -21,8 +21,8 @@ namespace CapaDatos
                 try
                 {
                     StringBuilder consulta = new StringBuilder();
-                    consulta.AppendLine("select u.Id,u.Documento,u.NombreCompleto,u.Correo,u.Clave,u.Estado,r.Id,r.Descripcion from Usuario u");
-                    consulta.AppendLine("inner join rol r on r.Id = u.IdRol");
+                    consulta.AppendLine("select u.Id,u.Documento,u.NombreCompleto,u.Correo,u.Clave,u.Estado,r.Id as IdRol,r.Descripcion as DescripcionRol from Usuario u");
+                    consulta.AppendLine("inner join Rol r on r.Id = u.IdRol");
                     consulta.AppendLine("order by u.NombreCompleto");
 
                     SqlCommand comando = new SqlCommand(consulta.ToString(), oConexion);
@@ -42,7 +42,7 @@ namespace CapaDatos
                                 Correo = dr["Correo"].ToString(),
                                 Clave = dr["Clave"].ToString(),
                                 Estado = Convert.ToInt32(dr["Estado"]),
-                                oRol = new Rol() { Id = Convert.ToInt32(dr["Id"]), Descripcion = dr["Descripcion"].ToString() }
+                                oRol = new Rol() { Id = Convert.ToInt32(dr["IdRol"]), Descripcion = dr["DescripcionRol"].ToString() }
                             });
                         }
                     }

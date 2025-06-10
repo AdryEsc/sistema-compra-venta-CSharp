@@ -17,6 +17,9 @@ namespace CapaPresentacion
     {
         //Instancia para validar textbox
         ValidacionTextBox validacionTextBox = new ValidacionTextBox();
+        private string textoReal = "";
+        private bool estaOculto = true;
+
 
         public Login()
         {
@@ -37,11 +40,11 @@ namespace CapaPresentacion
             else
             {
                 Usuario auxUsuario = new CN_Usuario().listarUsuarios().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtContrasenia.Text).FirstOrDefault();
-                if (auxUsuario.Estado == 0) {
+                if (auxUsuario != null && auxUsuario.Estado == 0) {
                     MessageBox.Show("Usuario NO ACTIVO, por favor comuniquese con el administrador", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else {
-                    Usuario oUsuario = new CN_Usuario().listarUsuarios().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtContrasenia.Text && u.Estado == 1).FirstOrDefault();
+                    Usuario oUsuario = new CN_Usuario().listarUsuarios().Where(u => u.Documento == txtDocumento.Text && u.Clave == txtContrasenia.Text).FirstOrDefault();
 
                     if (oUsuario != null)
                     {
@@ -75,6 +78,58 @@ namespace CapaPresentacion
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
             validacionTextBox.soloNumeros(e);
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            txtContrasenia.PasswordChar = '*';
+        }
+
+        private void btnMostrarContasenia_Click(object sender, EventArgs e)
+        {
+            if (txtContrasenia.PasswordChar == '*')
+            {
+                txtContrasenia.PasswordChar = '\0';
+                btnMostrarContasenia.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            else
+            {
+                txtContrasenia.PasswordChar = '*';
+                btnMostrarContasenia.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            }
+
+            /*
+            if (btnMostrarContasenia.IconChar == FontAwesome.Sharp.IconChar.Eye)
+            {
+                txtContrasenia.UseSystemPasswordChar = false;
+            }
+            else {
+                //txtContrasenia.UseSystemPasswordChar = true;
+                txtContrasenia.PasswordChar = '*';
+                btnMostrarContasenia.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            }
+            */
+        }
+
+        private void txtContrasenia_TextChanged(object sender, EventArgs e)
+        {
+            ////Solo actualizar si esta escribiendo directamente
+            //if (estaOculto) {
+            //    //Evitar bucle al borrar o cambiar textoprogramaticamente
+            //    if (txtContrasenia.Text.Length < textoReal.Length) {
+            //        textoReal = textoReal.Substring(0,txtContrasenia.Text.Length);
+            //    }
+            //    else if(txtContrasenia.Text.Length > textoReal.Length) {
+            //        string nuevoCaracter = txtContrasenia.Text.Substring(txtContrasenia.Text.Length - 1);
+            //        textoReal += nuevoCaracter;
+            //    }
+            //    //Reemplazar texto visible con asteriscos
+            //    txtContrasenia.Text = new string('*',textoReal.Length);
+            //    txtContrasenia.SelectionStart = txtContrasenia.Text.Length;
+            //}
+            //else{
+            //    textoReal = txtContrasenia.Text;
+            //}
         }
     }
 }

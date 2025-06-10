@@ -76,10 +76,24 @@ namespace CapaPresentacion
 
             if (idUsuarioGenerado != 0)
             {
+                /*
                 dgvUsuarios.Rows.Add(new object[] {"",idUsuarioGenerado,txtDocumento.Text,txtNombreCompleto.Text,txtCorreo.Text,txtContrasenia.Text,
                 ((OpcionComboBox)cbRol.SelectedItem).valor.ToString(),((OpcionComboBox)cbRol.SelectedItem).texto.ToString(),
                 ((OpcionComboBox)cbEstado.SelectedItem).valor.ToString(),((OpcionComboBox)cbEstado.SelectedItem).texto.ToString(),
                 });
+                */
+
+                dgvUsuarios.DataSource = null;
+                dgvUsuarios.Rows.Clear();
+
+                //Cargamos los usuarios a la tabla
+                List<Usuario> listaUsuarios = new CN_Usuario().listarUsuarios();
+                foreach (Usuario item in listaUsuarios)
+                {
+                    dgvUsuarios.Rows.Add(new object[] {"",item.Id,item.Documento,item.NombreCompleto,item.Correo,item.Clave,
+                            item.oRol.Id,item.oRol.Descripcion,item.Estado,item.Estado == 1 ? "Activo" : "No Activo"});
+
+                }
 
                 limpiar();
             }
@@ -180,6 +194,7 @@ namespace CapaPresentacion
                 if (resul == DialogResult.Yes) {
                     bool modificado = new CN_Usuario().actualizarUsuario(user, out mensaje);
                     if (modificado == true) {
+                        /*
                         DataGridViewRow row = dgvUsuarios.Rows[Convert.ToInt32(txtIndice.Text)];
                         row.Cells["id"].Value = txtId.Text;
                         row.Cells["documento"].Value = txtDocumento.Text;
@@ -190,7 +205,20 @@ namespace CapaPresentacion
                         row.Cells["rol"].Value = ((OpcionComboBox)cbRol.SelectedItem).texto.ToString();
                         row.Cells["estadoValor"].Value = ((OpcionComboBox)cbEstado.SelectedItem).valor.ToString();
                         row.Cells["estado"].Value = ((OpcionComboBox)cbEstado.SelectedItem).texto.ToString();
+                        */
                         MessageBox.Show("Usuario actualizado con exito","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        
+                        dgvUsuarios.DataSource = null;
+                        dgvUsuarios.Rows.Clear();
+
+                        //Cargamos los usuarios a la tabla
+                        List<Usuario> listaUsuarios = new CN_Usuario().listarUsuarios();
+                        foreach (Usuario item in listaUsuarios)
+                        {
+                            dgvUsuarios.Rows.Add(new object[] {"",item.Id,item.Documento,item.NombreCompleto,item.Correo,item.Clave,
+                            item.oRol.Id,item.oRol.Descripcion,item.Estado,item.Estado == 1 ? "Activo" : "No Activo"});
+
+                        }
 
                         limpiar();
                     }
@@ -305,6 +333,21 @@ namespace CapaPresentacion
             {
                 dgvUsuarios.Rows.Add(new object[] {"",item.Id,item.Documento,item.NombreCompleto,item.Correo,item.Clave,
                 item.oRol.Id,item.oRol.Descripcion,item.Estado,item.Estado == 1 ? "Activo" : "No Activo"});
+
+            }
+        }
+
+        private void dgvUsuarios_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            var dgv = dgvUsuarios;
+            var fila = dgv.Rows[e.RowIndex];
+
+            var estado = fila.Cells["estado"].Value?.ToString();
+
+            if (estado == "No Activo")
+            {
+                fila.DefaultCellStyle.BackColor = Color.LightBlue;
+                //fila.DefaultCellStyle.ForeColor = Color.White;
 
             }
         }

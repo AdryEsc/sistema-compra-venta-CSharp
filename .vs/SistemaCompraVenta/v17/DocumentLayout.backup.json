@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\adry\\source\\repos\\SistemaCompraVenta\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2512A228-816D-4EEE-BD7A-7229531464B7}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\adry\\source\\repos\\sistemacompraventa\\capapresentacion\\frmcategoriaproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2512A228-816D-4EEE-BD7A-7229531464B7}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmcategoriaproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2512A228-816D-4EEE-BD7A-7229531464B7}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\adry\\source\\repos\\sistemacompraventa\\capapresentacion\\frmcategoriaproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2512A228-816D-4EEE-BD7A-7229531464B7}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmcategoriaproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2512A228-816D-4EEE-BD7A-7229531464B7}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\adry\\source\\repos\\SistemaCompraVenta\\capapresentacion\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2512A228-816D-4EEE-BD7A-7229531464B7}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmproductos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,31 +14,18 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmCategoriaProductos.cs",
-              "DocumentMoniker": "C:\\Users\\adry\\source\\repos\\SistemaCompraVenta\\CapaPresentacion\\frmCategoriaProductos.cs",
-              "RelativeDocumentMoniker": "CapaPresentacion\\frmCategoriaProductos.cs",
-              "ToolTip": "C:\\Users\\adry\\source\\repos\\SistemaCompraVenta\\CapaPresentacion\\frmCategoriaProductos.cs",
-              "RelativeToolTip": "CapaPresentacion\\frmCategoriaProductos.cs",
-              "ViewState": "AgIAAMEAAAAAAAAAAAAAANcAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T22:47:56.012Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmCategoriaProductos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\adry\\source\\repos\\SistemaCompraVenta\\CapaPresentacion\\frmCategoriaProductos.cs",
-              "RelativeDocumentMoniker": "CapaPresentacion\\frmCategoriaProductos.cs",
-              "ToolTip": "C:\\Users\\adry\\source\\repos\\SistemaCompraVenta\\CapaPresentacion\\frmCategoriaProductos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CapaPresentacion\\frmCategoriaProductos.cs [Dise\u00F1o]",
+              "Title": "frmProductos.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\adry\\source\\repos\\SistemaCompraVenta\\CapaPresentacion\\frmProductos.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\frmProductos.cs",
+              "ToolTip": "C:\\Users\\adry\\source\\repos\\SistemaCompraVenta\\CapaPresentacion\\frmProductos.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CapaPresentacion\\frmProductos.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-04T22:24:03.84Z",
+              "WhenOpened": "2025-06-05T15:35:44.602Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

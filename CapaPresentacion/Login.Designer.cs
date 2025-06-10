@@ -37,6 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnIngresar = new FontAwesome.Sharp.IconButton();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
+            this.btnMostrarContasenia = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,9 +89,9 @@
             this.txtContrasenia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContrasenia.Location = new System.Drawing.Point(297, 164);
             this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(279, 20);
             this.txtContrasenia.TabIndex = 4;
+            this.txtContrasenia.TextChanged += new System.EventHandler(this.txtContrasenia_TextChanged);
             // 
             // label3
             // 
@@ -152,12 +153,28 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // btnMostrarContasenia
+            // 
+            this.btnMostrarContasenia.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnMostrarContasenia.IconColor = System.Drawing.Color.Black;
+            this.btnMostrarContasenia.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMostrarContasenia.IconSize = 35;
+            this.btnMostrarContasenia.Location = new System.Drawing.Point(582, 157);
+            this.btnMostrarContasenia.Name = "btnMostrarContasenia";
+            this.btnMostrarContasenia.Size = new System.Drawing.Size(39, 30);
+            this.btnMostrarContasenia.TabIndex = 9;
+            this.btnMostrarContasenia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMostrarContasenia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMostrarContasenia.UseVisualStyleBackColor = true;
+            this.btnMostrarContasenia.Click += new System.EventHandler(this.btnMostrarContasenia_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(634, 332);
+            this.Controls.Add(this.btnMostrarContasenia);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.label4);
@@ -171,6 +188,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -188,5 +206,6 @@
         private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconButton btnIngresar;
         private FontAwesome.Sharp.IconButton btnCancelar;
+        private FontAwesome.Sharp.IconButton btnMostrarContasenia;
     }
 }

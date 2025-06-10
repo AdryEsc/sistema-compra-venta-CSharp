@@ -38,6 +38,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dgvCategorias = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.btnActualizar = new FontAwesome.Sharp.IconButton();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
@@ -46,11 +51,6 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,7 +133,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -159,6 +159,41 @@
             this.dgvCategorias.TabIndex = 48;
             this.dgvCategorias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorias_CellContentClick);
             this.dgvCategorias.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvCategorias_CellPainting);
+            this.dgvCategorias.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dgvCategorias_RowPrePaint);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Width = 30;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID. DE USUARIO";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "DESCRIPCION";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 200;
+            // 
+            // estadoValor
+            // 
+            this.estadoValor.HeaderText = "VALOR DE ESTADO";
+            this.estadoValor.Name = "estadoValor";
+            this.estadoValor.ReadOnly = true;
+            this.estadoValor.Visible = false;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "ESTADO";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
             // 
             // btnEliminar
             // 
@@ -270,40 +305,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(267, 543);
             this.label1.TabIndex = 30;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Width = 30;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID. DE USUARIO";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "DESCRIPCION";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            this.descripcion.Width = 200;
-            // 
-            // estadoValor
-            // 
-            this.estadoValor.HeaderText = "VALOR DE ESTADO";
-            this.estadoValor.Name = "estadoValor";
-            this.estadoValor.ReadOnly = true;
-            this.estadoValor.Visible = false;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "ESTADO";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
             // 
             // frmCategoriaProductos
             // 

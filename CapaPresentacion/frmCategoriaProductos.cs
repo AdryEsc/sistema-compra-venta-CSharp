@@ -65,7 +65,7 @@ namespace CapaPresentacion
             Categoria categ = new Categoria()
             {
                 Id = Convert.ToInt32(txtId.Text),
-                Descripcion = txtDescripcion.Text,
+                Descripcion = txtDescripcion.Text.ToUpper(),
                 Estado = Convert.ToInt32(((OpcionComboBox)cbEstado.SelectedItem).valor)
             };
 
@@ -73,10 +73,23 @@ namespace CapaPresentacion
 
             if (idCategoriaGenerada != 0)
             {
+                /*
                 dgvCategorias.Rows.Add(new object[] {"",idCategoriaGenerada,txtDescripcion.Text,
                 ((OpcionComboBox)cbEstado.SelectedItem).valor.ToString(),
                 ((OpcionComboBox)cbEstado.SelectedItem).texto.ToString(),
                 });
+                */
+
+                dgvCategorias.DataSource = null;
+                dgvCategorias.Rows.Clear();
+
+                //Cargamos las categorias a la tabla
+                List<Categoria> listaCategorias = new CN_Categoria().listarCategorias();
+                foreach (Categoria item in listaCategorias)
+                {
+                    dgvCategorias.Rows.Add(new object[] { "", item.Id, item.Descripcion, item.Estado, item.Estado == 1 ? "Activo" : "No Activo" });
+
+                }
 
                 limpiar();
             }
@@ -135,7 +148,7 @@ namespace CapaPresentacion
             Categoria categ = new Categoria()
             {
                 Id = Convert.ToInt32(txtId.Text),
-                Descripcion = txtDescripcion.Text,
+                Descripcion = txtDescripcion.Text.ToUpper(),
                 Estado = Convert.ToInt32(((OpcionComboBox)cbEstado.SelectedItem).valor)
             };
 
@@ -156,12 +169,25 @@ namespace CapaPresentacion
                     bool modificado = new CN_Categoria().actualizarCategoria(categ, out mensaje);
                     if (modificado == true)
                     {
+                        /*
                         DataGridViewRow row = dgvCategorias.Rows[Convert.ToInt32(txtIndice.Text)];
                         row.Cells["id"].Value = txtId.Text;
                         row.Cells["descripcion"].Value = txtDescripcion.Text;
                         row.Cells["estadoValor"].Value = ((OpcionComboBox)cbEstado.SelectedItem).valor.ToString();
                         row.Cells["estado"].Value = ((OpcionComboBox)cbEstado.SelectedItem).texto.ToString();
+                        */
                         MessageBox.Show("Categoria actualizada con exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        dgvCategorias.DataSource = null;
+                        dgvCategorias.Rows.Clear();
+
+                        //Cargamos las categorias a la tabla
+                        List<Categoria> listaCategorias = new CN_Categoria().listarCategorias();
+                        foreach (Categoria item in listaCategorias)
+                        {
+                            dgvCategorias.Rows.Add(new object[] { "", item.Id, item.Descripcion, item.Estado, item.Estado == 1 ? "Activo" : "No Activo" });
+
+                        }
 
                         limpiar();
                     }
@@ -223,6 +249,21 @@ namespace CapaPresentacion
                     MessageBox.Show("No se realizo ningun cambio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar();
                 }
+            }
+        }
+
+        private void dgvCategorias_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            var dgv = dgvCategorias;
+            var fila = dgv.Rows[e.RowIndex];
+
+            var estado = fila.Cells["estado"].Value?.ToString();
+
+            if (estado == "No Activo")
+            {
+                fila.DefaultCellStyle.BackColor = Color.LightBlue;
+                //fila.DefaultCellStyle.ForeColor = Color.White;
+
             }
         }
     }

@@ -65,7 +65,7 @@
             this.menuAjuste});
             this.menu.Location = new System.Drawing.Point(0, 70);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1221, 73);
+            this.menu.Size = new System.Drawing.Size(1284, 73);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
             // 
@@ -253,7 +253,7 @@
             this.menuTitulo.Location = new System.Drawing.Point(0, 0);
             this.menuTitulo.Name = "menuTitulo";
             this.menuTitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitulo.Size = new System.Drawing.Size(1221, 70);
+            this.menuTitulo.Size = new System.Drawing.Size(1284, 70);
             this.menuTitulo.TabIndex = 1;
             this.menuTitulo.Text = "menuStrip2";
             // 
@@ -261,11 +261,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.SteelBlue;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Georgia", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(24, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 31);
+            this.label1.Size = new System.Drawing.Size(292, 31);
             this.label1.TabIndex = 2;
             this.label1.Text = "SISTEMA DE VENTAS";
             // 
@@ -274,7 +274,7 @@
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 143);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1221, 551);
+            this.contenedor.Size = new System.Drawing.Size(1284, 551);
             this.contenedor.TabIndex = 3;
             // 
             // label2
@@ -311,7 +311,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1221, 694);
+            this.ClientSize = new System.Drawing.Size(1284, 694);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.contenedor);
